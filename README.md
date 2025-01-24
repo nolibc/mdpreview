@@ -73,7 +73,9 @@ Ensure all dependencies the binary requires are downloaded. Then build it.
 
 Add it to a directory in PATH. This may require root privileges depending on the location.
 
-**If uninstalling**, remember to delete the binary executable.
+<br>
+
+**If uninstalling**, remember to delete the binary executable file.
 
 ## Configuration
 
@@ -101,9 +103,11 @@ For instance, use 'TextChangedI' to update the page content on each keystroke.
 
 The small codebase makes hacking on MDPreview simple and ensures only essential features get implemented. Currently, there's only ~500 LOC and the project will likely never exceed 1k SLOC.
 
+**For example,**
+
 <br>
 
-**For example**, to change the appearance of the web page, simply modify the CSS in `binary/internal/css.go`.
+To change the appearance of the web page, modify the CSS in `binary/internal/css.go`.
 
 To extend the markdown parser's functionality, view the [list of extensions](https://pkg.go.dev/github.com/yuin/goldmark#readme-list-of-extensions).
 
@@ -117,6 +121,6 @@ Once both components are set up, you can interact with the plugin via its Lua AP
 
 1. Closing the buffer from which it was spawned.
 1. Calling the MdPreviewStop command.
-1. Neovim Closing.
+1. Closing Neovim.
 
 The buffer's content is sent—on the reload event—to the server over an [nvim channel](https://neovim.io/doc/user/channel.html). The server converts the markdown into HTML and sends it to the client (your browser) for rendering using [Server Sent Events (SSE)](https://html.spec.whatwg.org/multipage/server-sent-events.html).
